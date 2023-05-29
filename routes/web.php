@@ -30,5 +30,5 @@ Route::get('/', function () {
         'id' => null,
     ];
 
-    return view('home', $data);
-})->name('home');
+    return view('comics.index', $data);
+})->name('comics.index');
