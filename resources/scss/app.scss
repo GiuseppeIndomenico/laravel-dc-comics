@@ -1,0 +1,194 @@
+@import '~bootstrap/scss/bootstrap';
+
+//generals
+
+.gi-bg {
+    width: 100%;
+    height: 100%;
+    background-image: url(/img/footer-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+;
+
+.gi-dark {
+    background-color: #333333;
+}
+
+;
+
+.jumbo {
+    width: 100%;
+    height: 400px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 100% 0%;
+    }
+
+
+}
+
+;
+
+.gi-pos {
+    position: absolute;
+    left: 312px;
+    bottom: -20px;
+    font-size: 20px;
+}
+
+//header
+
+.logo-header {
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+}
+
+
+
+.active {
+    border-bottom: 3px inset #0d6efd;
+
+    a {
+        color: #0d6efd
+    }
+}
+
+.ul-header {
+    list-style: none;
+
+    li {
+        cursor: pointer;
+        height: 100%;
+        border-bottom: 3px inset transparent;
+        transition: all .25s;
+
+        &:hover {
+            border-bottom: 3px inset #0d6efd;
+
+            a {
+                color: #0d6efd
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+
+        }
+    }
+}
+
+
+//main
+
+.gi-img {
+    width: 200px;
+    height: 200px;
+    scale: 0.9;
+    transition: all .5s;
+
+    &:hover {
+        scale: 1.1;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 100% 0%;
+    }
+}
+
+.img-option {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+// footer
+
+.gi-logo {
+    height: 480px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+h3 {
+    font-size: 18px;
+    padding-left: 1rem;
+    text-align: center;
+
+}
+
+.ul-footer {
+
+    li {
+        list-style: none;
+        color: lightgray;
+        font-size: 12px;
+        text-align: center;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+button {
+    background: transparent;
+    color: white;
+    border: 2px solid #0d6efd;
+    padding: 10px;
+    font-size: 1rem;
+    transition: all .25s;
+
+    &:hover {
+        color: #0d6efd;
+        background-color: white;
+        border: 2px solid white;
+    }
+}
+
+.img-social {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+
+    &:hover img {
+        scale: 1;
+    }
+
+    img {
+        scale: 0.8;
+        transition: all .5s;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+//showComic
+
+.gi-comic {
+    max-width: 400px;
+}
+
+p.pt-2 {
+    line-height: 20px
+}
