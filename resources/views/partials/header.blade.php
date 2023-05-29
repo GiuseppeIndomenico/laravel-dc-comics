@@ -5,11 +5,27 @@
             <img class="img-fluid" src="/img/dc-logo.png" alt="logo">
         </div>
         <ul class="d-flex align-items-center justify-content-center m-0 ul-header">
-            @foreach ($navs as $nav)
-                <li class="p-3 d-flex align-items-center {{ Route::currentRouteName() == 'comics' ? 'active' : '' }}">
-                    <a class="fw-semibold" href="{{ route('comics') }}">{{ $nav['title'] }}</a>
-                </li>
-            @endforeach
+
+            <li class="p-3 d-flex align-items-center">
+                <a class="fw-semibold" href="">DC</a>
+            </li>
+            <li class="p-3 d-flex align-items-center">
+                <a class="fw-semibold" href="">COMICS</a>
+            </li>
+            <li class="p-3 d-flex align-items-center">
+                <a class="fw-semibold" href="">GAMES</a>
+            </li>
+            <li class="p-3 d-flex align-items-center">
+                <a class="fw-semibold" href="">VIDEOS</a>
+            </li>
+            <li class="p-3 d-flex align-items-center">
+                <a class="fw-semibold" href="">NEWS</a>
+            </li>
+            <li class="p-3 d-flex align-items-center">
+                <a class="fw-semibold" href="">TV</a>
+            </li>
+
+
         </ul>
 
     </nav>
