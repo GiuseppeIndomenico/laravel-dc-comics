@@ -1,4 +1,5 @@
 <footer>
+
     <section class="gi-bg">
 
 

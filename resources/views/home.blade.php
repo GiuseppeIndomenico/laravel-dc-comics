@@ -19,7 +19,7 @@
                                     <span class="text-light ">{{ $comic->series }}</span>
                                 </div>
                                 <div class="col-4">
-                                    <span class="text-light">{{ $comic->price }}</span>
+                                    <span class="text-light">{{ $comic->price }}&euro;</span>
                                 </div>
                             </div>
                         </div>
@@ -28,4 +28,5 @@
             </div>
         @endforeach
     </div>
+    <a href="{{ route('comics.create') }}" class="btn btn-danger"> CREATE UR COMIC HERE!!!</a>
 @endsection

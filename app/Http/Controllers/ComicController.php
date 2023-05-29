@@ -25,10 +25,46 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function create()
-    // {
-    //     //
-    // }
+    public function create()
+    {
+        $data = [
+            'navs' => config('dbOption.navs'),
+            'options' => config('dbOption.options'),
+            'dcComics' => config('footer-links.dcComics'),
+            'shop' => config('footer-links.shop'),
+            'dc' => config('footer-links.dc'),
+            'sites' => config('footer-links.sites'),
+            'socials' => config('footer-links.socials'),
+            'comics' => \App\Models\Comic::all(),
+            'id' => null,
+        ];
+
+        $comic = new Comic();
+        return view('comics.create', $data, compact('comic'));
+
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'thumbnail_url' => 'required',
+            'series' => 'required',
+            'price' => 'required|numeric',
+            'sale_date' => 'required',
+            'type' => 'required',
+        ]);
+
+
+        $data['writers'] = json_encode(['Default Writer']);
+        $data['artists'] = json_encode(['Default Artist']);
+
+        $comic = Comic::create($data);
+
+        return redirect()->route('home')->with('success', 'Comic added successfully.');
+    }
+
 
     // /**
     //  * Store a newly created resource in storage.

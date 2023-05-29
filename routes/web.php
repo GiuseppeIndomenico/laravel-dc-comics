@@ -15,7 +15,7 @@ use App\Models\Comic;
 |
 */
 
-Route::resource('comics', ComicController::class)->only(['index', 'show']);
+Route::resource('comics', ComicController::class)->only(['index', 'show', 'create', 'store']);
 
 Route::get('/', function () {
     $data = [
