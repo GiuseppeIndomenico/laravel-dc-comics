@@ -120,6 +120,23 @@ a {
     }
 }
 
+.gi-delete {
+    top: -5px;
+    right: 15px;
+    font-size: 12px;
+    padding: 5px 8px;
+    transition: all .25s;
+    color: red;
+    border-radius: 6px;
+
+    &:hover {
+        color: white;
+        background-color: red;
+        border: 2px solid white;
+    }
+
+}
+
 // footer
 
 .gi-logo {

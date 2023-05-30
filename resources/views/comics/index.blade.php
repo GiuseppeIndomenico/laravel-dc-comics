@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         @foreach ($comics as $comic)
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2 position-relative">
                 <a href="{{ route('comics.show', $comic) }}">
                     <div class="d-flex flex-column align-content-center justify-content-center py-2">
                         <div class="gi-img mb-2">
@@ -21,7 +21,13 @@
                         </div>
                     </div>
                 </a>
+                <form action="{{ route('comics.destroy', $comic) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class=" border-0  position-absolute gi-delete"> X</button>
+                </form>
             </div>
         @endforeach
     </div>
+    <a href="{{ route('comics.create') }}" class="btn btn-danger"> CREATE UR COMIC HERE!!!</a>
 @endsection

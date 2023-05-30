@@ -15,7 +15,7 @@ use App\Models\Comic;
 |
 */
 
-Route::resource('comics', ComicController::class)->only(['index', 'show', 'create', 'store']);
+Route::resource('comics', ComicController::class);
 
 Route::get('/', function () {
     $data = [
@@ -26,7 +26,7 @@ Route::get('/', function () {
         'dc' => config('footer-links.dc'),
         'sites' => config('footer-links.sites'),
         'socials' => config('footer-links.socials'),
-        'comics' => \App\Models\Comic::all(),
+        'comics' => Comic::all(),
         'id' => null,
     ];
 

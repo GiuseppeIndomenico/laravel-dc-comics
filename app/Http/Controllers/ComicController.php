@@ -35,7 +35,7 @@ class ComicController extends Controller
             'dc' => config('footer-links.dc'),
             'sites' => config('footer-links.sites'),
             'socials' => config('footer-links.socials'),
-            'comics' => \App\Models\Comic::all(),
+            'comics' => Comic::all(),
             'id' => null,
         ];
 
@@ -62,7 +62,7 @@ class ComicController extends Controller
 
         $comic = Comic::create($data);
 
-        return redirect()->route('home')->with('success', 'Comic added successfully.');
+        return redirect()->route('comics.index')->with('success', 'Comic added successfully.');
     }
 
 
@@ -93,7 +93,7 @@ class ComicController extends Controller
             'dc' => config('footer-links.dc'),
             'sites' => config('footer-links.sites'),
             'socials' => config('footer-links.socials'),
-            'comics' => \App\Models\Comic::all(),
+            'comics' => Comic::all(),
             'id' => null,
         ];
         return view('comics.show', $data, compact('comic'));
@@ -101,37 +101,65 @@ class ComicController extends Controller
 
 
 
-    //     /**
-//      * Show the form for editing the specified resource.
-//      *
-//      * @param  \App\Models\Comic  $comic
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function edit(Comic $comic)
-//     {
-//         //
-//     }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Comic  $comic
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Comic $comic)
+    {
+        $data = [
+            'navs' => config('dbOption.navs'),
+            'options' => config('dbOption.options'),
+            'dcComics' => config('footer-links.dcComics'),
+            'shop' => config('footer-links.shop'),
+            'dc' => config('footer-links.dc'),
+            'sites' => config('footer-links.sites'),
+            'socials' => config('footer-links.socials'),
+            'comics' => Comic::all(),
+            'id' => null,
+        ];
+        return view('comics.edit', $data, compact('comic'));
+    }
 
-    //     /**
-//      * Update the specified resource in storage.
-//      *
-//      * @param  \Illuminate\Http\Request  $request
-//      * @param  \App\Models\Comic  $comic
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function update(Request $request, Comic $comic)
-//     {
-//         //
-//     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Comic  $comic
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Comic $comic)
+    {
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'thumbnail_url' => 'required',
+            'series' => 'required',
+            'price' => 'required|numeric',
+            'sale_date' => 'required',
+            'type' => 'required',
+        ]);
 
-    //     /**
-//      * Remove the specified resource from storage.
-//      *
-//      * @param  \App\Models\Comic  $comic
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function destroy(Comic $comic)
-//     {
-//         //
-//     }
+
+        $data['writers'] = json_encode(['Default Writer']);
+        $data['artists'] = json_encode(['Default Artist']);
+
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic)->with('success', 'Fumetto aggiornato con successo.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Comic  $comic
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Comic $comic)
+    {
+        $comic->delete();
+        return redirect()->route('comics.index')->with('success', 'Comic deleted successfully.');
+    }
 }
