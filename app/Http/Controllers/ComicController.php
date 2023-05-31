@@ -48,12 +48,12 @@ class ComicController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
+            'thumbnail_url' => 'required|url',
             'description' => 'required',
-            'thumbnail_url' => 'required',
             'series' => 'required',
-            'price' => 'required|numeric',
-            'sale_date' => 'required',
             'type' => 'required',
+            'price' => 'required|numeric',
+            'sale_date' => 'required|date',
         ]);
 
 
@@ -134,12 +134,12 @@ class ComicController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
+            'thumbnail_url' => 'required|url',
             'description' => 'required',
-            'thumbnail_url' => 'required',
             'series' => 'required',
-            'price' => 'required|numeric',
-            'sale_date' => 'required',
             'type' => 'required',
+            'price' => 'required|numeric',
+            'sale_date' => 'required|date',
         ]);
 
 

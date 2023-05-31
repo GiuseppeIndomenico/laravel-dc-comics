@@ -12,32 +12,36 @@
                 <div class="col-6">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ $comic->title }}"
+                            required>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="mb-3">
                         <label for="thumbnail_url" class="form-label">Thumbnail URL</label>
-                        <input type="text" class="form-control" id="thumbnail_url" name="thumbnail_url" required>
+                        <input type="text" class="form-control" id="thumbnail_url" name="thumbnail_url"
+                            value="{{ $comic->thumbnail_url }}" required>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" name="description" required></textarea>
+                        <textarea class="form-control" id="description" name="description" required>{{ $comic->description }}</textarea>
                     </div>
                 </div>
 
                 <div class="col-4">
                     <div class="mb-3">
                         <label for="series" class="form-label">Series</label>
-                        <input type="text" class="form-control" id="series" name="series" required>
+                        <input type="text" class="form-control" id="series" name="series"
+                            value="{{ $comic->series }}" required>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="mb-3">
                         <label for="type" class="form-label">Type</label>
-                        <input type="text" class="form-control" id="type" name="type" required>
+                        <input type="text" class="form-control" id="type" name="type" value="{{ $comic->type }}"
+                            required>
                     </div>
                 </div>
 
@@ -45,28 +49,30 @@
                 <div class="col-4">
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="price" name="price" required>
+                        <input type="number" class="form-control" id="price" name="price" value="{{ $comic->price }}"
+                            required>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="mb-3">
                         <label for="sale_date" class="form-label">Sale Date</label>
-                        <input type="date" class="form-control" id="sale_date" name="sale_date" required>
+                        <input type="date" class="form-control" id="sale_date" name="sale_date"
+                            value="{{ $comic->sale_date }}" required>
                     </div>
 
                 </div>
                 <div class="col-4">
                     <div class="mb-3">
                         <label for="artists" class="form-label">Artists</label>
-                        <input type="text" class="form-control" id="artists" name="artists" value="Artist 1, Artist 2"
-                            required>
+                        <input type="text" class="form-control" id="artists" name="artists"
+                            value="{{ $comic->artists }}" required>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="mb-3">
                         <label for="writers" class="form-label">Writers</label>
-                        <input type="text" class="form-control" id="writers" name="writers" value="Writer 1, Writer 2"
-                            required>
+                        <input type="text" class="form-control" id="writers" name="writers"
+                            value="{{ $comic->writers }}" required>
                     </div>
                 </div>
             </div>
